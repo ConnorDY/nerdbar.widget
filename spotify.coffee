@@ -1,4 +1,4 @@
-command: "sh ./scripts/spotify.sh"
+command: "sh ./nerdbar.widget/scripts/spotify.sh"
 
 refreshFrequency: '2s' # ms
 

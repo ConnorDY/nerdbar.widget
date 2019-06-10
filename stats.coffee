@@ -1,10 +1,10 @@
-command: "sh ../nerdbar.widget/scripts/stats.sh"
+command: "sh ./nerdbar.widget/scripts/stats.sh"
 
 refreshFrequency: 3000 # ms
 
 render: (output) ->
   """
-    <link rel="stylesheet" type="text/css" href="./colors.css" />
+    <link rel="stylesheet" type="text/css" href="./nerdbar.widget/colors.css" />
     <div class='stats'></div>
   """
 

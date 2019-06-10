@@ -1,10 +1,10 @@
-command: "sh ./scripts/status.sh"
+command: "sh ./nerdbar.widget/scripts/status.sh"
 
 refreshFrequency: 10000 # ms
 
 render: (output) ->
   """
-    <link rel="stylesheet" type="text/css" href="./colors.css" />
+    <link rel="stylesheet" type="text/css" href="./nerdbar.widget/colors.css" />
     <div class="compstatus"></div>
   """
 
@@ -17,11 +17,13 @@ style: """
     top: 1px
     position: relative
     left: 10px
+  .wifi.icon
+    margin-right: 12px
   .charging
     font: 12px FontAwesome
     position: relative
     top: 0px
-    right: -11px
+    left: 19px
     z-index: 1
   """
 timeAndDate: (date, time) ->
@@ -53,11 +55,11 @@ batteryStatus: (battery, state) ->
 
 getWifiStatus: (status, netName, netIP) ->
   if status == "Wi-Fi"
-    return "<span class='wifi '>&nbsp&nbsp&nbsp</span><span class='white'>#{netName}&nbsp</span>"
+    return "<span class='wifi icon'>&nbsp&nbsp</span><span class='white'>#{netName}</span>"
   if status == 'USB 10/100/1000 LAN' or status == 'Apple USB Ethernet Adapter'
-    return "<span class='wifi '>&nbsp&nbsp&nbsp</span><span class='white'>#{netIP}</span>"
+    return "<span class='wifi icon'>&nbsp&nbsp</span><span class='white'>#{netIP}</span>"
   else
-    return "<span class='grey wifi'>&nbsp&nbsp&nbsp</span><span class='white'>--&nbsp&nbsp&nbsp</span>"
+    return "<span class='grey wifi icon'>&nbsp&nbsp</span><span class='white'>---</span>"
 
 getMailCount: (count) ->
   return "<span class='icon'></span><span class=white>#{count}</span>"
@@ -82,9 +84,9 @@ update: (output, domEl) ->
   reminders = values[8].replace /^\s+|\s+$/g, ""
 
   # create an HTML string to be displayed by the widget
-  htmlString = @getWifiStatus(netStatus, netName, netIP) +
+  htmlString = @getWifiStatus(netStatus, netName, netIP) + "<span class='cyan'>" + " ⎢" + "</span>" +
                @batteryStatus(battery, isCharging) + "<span class='cyan'>" + " ⎢ " + "</span>" +
-               @getMailCount(mail) + "&nbsp&nbsp" +
+               # @getMailCount(mail) + "&nbsp&nbsp" +
                @getReminders(reminders) + "<span class='cyan'>⎢</span>" +
                @timeAndDate(date,time) + "<span class ='cyan'> ⎢</span>"
 

@@ -1,10 +1,10 @@
-command: "sh ./scripts/mpd.sh && sh ./scripts/torrent_script"
+command: "sh ./nerdbar.widget/scripts/mpd.sh && sh ./nerdbar.widget/scripts/torrent_script"
 
 refreshFrequency: '2s' # ms
 
 render: (output) ->
   """
-    <link rel="stylesheet" type="text/css" href="./colors.css" />
+    <link rel="stylesheet" type="text/css" href=".//nerdbar.widgetcolors.css" />
     <div class='nowplaying'></div>
     <div class='torrentStatus'></div>
   """

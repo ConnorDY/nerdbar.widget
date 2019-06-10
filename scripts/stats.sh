@@ -1,1 +1,1 @@
-echo "$(sh ./scripts/cpu_script)@$(sh ./scripts/mem_script)@$(sh ./scripts/networktraffic)@$(sh ./scripts/hd_script)"
+echo "$(sh ./nerdbar.widget/scripts/cpu_script)@$(sh ./nerdbar.widget/scripts/mem_script)@$(sh ./nerdbar.widget/scripts/networktraffic)@$(sh ./nerdbar.widget/scripts/hd_script)"

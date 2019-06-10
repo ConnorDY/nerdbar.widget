@@ -1,10 +1,10 @@
-command: "/usr/local/bin/python3 ./scripts/weatherscript.py"
+command: "/usr/local/bin/python3 ./nerdbar.widget/scripts/weatherscript.py"
 
 refreshFrequency: 600000 # ms
 
 render: (output) ->
   """
-    <link rel="stylesheet" type="text/css" href="./colors.css" />
+    <link rel="stylesheet" type="text/css" href="./nerdbar.widget/colors.css" />
     <div class='compstatus'></div>
     <div class='weather_forecast'></div>
   """
