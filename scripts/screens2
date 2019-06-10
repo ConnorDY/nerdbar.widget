@@ -1,0 +1,8 @@
+#!/bin/bash
+
+chunkc=/usr/local/bin/chunkc
+
+active=$($chunkc tiling::query -d id)
+total=$($chunkc tiling::query -D 2)
+
+echo "$active@$total"

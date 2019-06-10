@@ -106,7 +106,7 @@ update: (output, domEl) ->
   screenhtml = ""
   mode = values[0].replace /^\s+|\s+$/g, ""
   active = parseInt(values[1])
-  total = parseInt(values[2])
+  total = values[2].split(' ').length
   activeWindow = values[3].split(',')
   app = activeWindow[0]
   title = activeWindow[1]

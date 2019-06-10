@@ -3,8 +3,7 @@
 chunkc=/usr/local/bin/chunkc
 
 active=$($chunkc tiling::query -d id)
-total=$($chunkc tiling::query -D 1 | tail -c 1)
-current=$($chunkc tiling::query --window name)
+total=$($chunkc tiling::query -D 1)
 mode=$($chunkc tiling::query -d mode)
 
 echo "$mode@$active@$total@$(/usr/local/bin/python3 ./nerdbar.widget/scripts/activeWindow.py)"
