@@ -28,34 +28,34 @@ getAppIcon: (app) ->
     app = app.replace /^\s+/g, ""
     app = app.toLowerCase()
 
-    if app == 'firefox'
-        return "<span class='bicon'>&nbsp</span>"
-    if app == 'spark'
-        return "<span class='bicon'>&nbsp</span>"
-    if app == 'messages'
-        return "<span class='icon'></span>"
-    if app == 'bear'
-        return "<span class='icon'></span>"
-    if app == 'fantastical 2'
-        return "<span class='icon'></span>"
-    if app == 'iterm2'
-        return "<span class='icon'></span>"
-    if app == '1password'
-        return "<span class='icon'></span>"
-    if app == 'finder'
-        return "<span class='icon'></span>"
-    if app == 'transmission'
-        return "<span class='icon'></span>"
-    if app == 'system preferences'
-        return "<span class='icon'></span>"
-    if app == 'pcalc'
-        return "<span class='icon'></span>"
-    if app == ''
-        return "<span class='ricon'></span><span class='white'> …</span>"
-    if app == 'spotify'
-        return "<span class='bicon'>&nbsp</span><span> spotify</span>"
-    else
-      return "<span class='ricon'><!--&nbsp--></span><span>#{app}&nbsp</span>"
+    # if app == 'firefox'
+    #     return "<span class='bicon'>&nbsp</span>"
+    # if app == 'spark'
+    #     return "<span class='bicon'>&nbsp</span>"
+    # if app == 'messages'
+    #     return "<span class='icon'></span>"
+    # if app == 'bear'
+    #     return "<span class='icon'></span>"
+    # if app == 'fantastical 2'
+    #     return "<span class='icon'></span>"
+    # if app == 'iterm2'
+    #     return "<span class='icon'></span>"
+    # if app == '1password'
+    #     return "<span class='icon'></span>"
+    # if app == 'finder'
+    #     return "<span class='icon'></span>"
+    # if app == 'transmission'
+    #     return "<span class='icon'></span>"
+    # if app == 'system preferences'
+    #     return "<span class='icon'></span>"
+    # if app == 'pcalc'
+    #     return "<span class='icon'></span>"
+    # if app == ''
+    #     return "<span class='ricon'></span><span class='white'> …</span>"
+    # if app == 'spotify'
+    #     return "<span class='bicon'>&nbsp</span><span> spotify</span>"
+    # else
+    return "<span class='ricon'><!--&nbsp--></span><span>#{app}&nbsp</span>"
 
 trimWindowName: (path) ->
 
@@ -124,7 +124,7 @@ update: (output, domEl) ->
                                  "<span class='tilingMode white'>[#{mode}]" +
                                  "<span class='cyan'> ⎢ </span></span>" +
                                  screenhtml +
-                                 "<span>&nbsp&nbsp</span>" +
+                                 "<span>&nbsp</span>" +
                                  # "<span>&nbsp&nbsp&nbsp&nbsp&nbsp</span>" +
                                  @getAppIcon(app) +
                                  @trimWindowName(title))
