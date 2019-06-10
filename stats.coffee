@@ -1,6 +1,6 @@
 command: "sh ./nerdbar.widget/scripts/stats.sh"
 
-refreshFrequency: 3000 # ms
+refreshFrequency: 5000 # ms
 
 render: (output) ->
   """

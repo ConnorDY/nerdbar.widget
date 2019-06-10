@@ -1,6 +1,6 @@
 command: "sh ./nerdbar.widget/scripts/getvolume.sh"
 
-refreshFrequency: 5000 # ms
+refreshFrequency: 3000 # ms
 
 render: (output) ->
   """

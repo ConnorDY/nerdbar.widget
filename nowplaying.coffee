@@ -1,6 +1,6 @@
 command: "sh ./nerdbar.widget/scripts/mpd.sh && sh ./nerdbar.widget/scripts/torrent_script"
 
-refreshFrequency: '2s' # ms
+refreshFrequency: 2000 # ms
 
 render: (output) ->
   """

@@ -1,6 +1,6 @@
 command: "sh ./nerdbar.widget/scripts/spotify.sh"
 
-refreshFrequency: '2s' # ms
+refreshFrequency: 2000 # ms
 
 render: (output) ->
   """
