@@ -18,6 +18,9 @@ style: """
   .torrentStatus
     position: relative
     bottom: 15px
+  .switch
+    position: relative
+    left: 5px
 """
 
 cutWhiteSpace: (text) ->
