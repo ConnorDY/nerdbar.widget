@@ -56,7 +56,6 @@ def main():
 
         try:
             weatherURL = 'http://api.openweathermap.org/data/2.5/forecast?lat='+ latitude + '&lon=' + longitude + '&appid=' + os.environ['OPENWEATHERMAP_API_KEY']
-            print(weatherURL)
             result = urllib.request.urlopen(weatherURL).read()
             data = json.loads(result.decode())
 
