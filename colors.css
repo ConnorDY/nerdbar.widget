@@ -28,6 +28,7 @@ span {
 .orange {
   color: #ffa501;
 }
+
 .orangebg {
   background: #ffa501;
   color: #7b8787;
@@ -71,6 +72,18 @@ span {
 
 .teal {
   color: #5699af;
+}
+
+.bicon {
+  position: relative;
+  top: 1px;
+  font: 14px FontAwesome;
+}
+
+.ricon {
+  position: relative;
+  top: 1px;
+  font: 14px FontAwesome;
 }
 
 .sicon {

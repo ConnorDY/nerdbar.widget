@@ -12,7 +12,7 @@ style: """
   color: #66d9ef
   font: 12px Hack
   left: 8px
-  bottom: 10.5px
+  bottom: 11px
   width:850px
   height: 16px
   .torrentStatus
