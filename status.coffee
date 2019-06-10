@@ -23,8 +23,9 @@ style: """
     font: 12px FontAwesome
     position: relative
     top: 0px
-    left: 19px
+    left: 12px
     z-index: 1
+    color: #ffffff
   """
 timeAndDate: (date, time) ->
   # returns a formatted html string with the date and time
@@ -35,13 +36,13 @@ batteryStatus: (battery, state) ->
   # battery is plugged in and charging
   batnum = parseInt(battery)
   if state == 'AC' and batnum >= 90
-    return "<span class='charging white sicon'></span><span class='green icon '></span><span class='white'>#{batnum}%</span>"
+    return "<span class='charging sicon'></span><span class='green icon '></span><span class='white'>#{batnum}%</span>"
   else if state == 'AC' and batnum >= 50 and batnum < 90
-    return "<span class='charging white icon'></span><span class='green icon'></span><span class='white'>#{batnum}%</span>"
+    return "<span class='charging icon'></span><span class='green icon'></span><span class='white'>#{batnum}%</span>"
   else if state == 'AC' and batnum < 50 and batnum >= 15
-    return "<span class='charging white icon'></span><span class='yellow icon'></span><span class='white'>#{batnum}%</span>"
+    return "<span class='charging icon'></span><span class='yellow icon'></span><span class='white'>#{batnum}%</span>"
   else if state == 'AC' and batnum < 15
-    return "<span class='charging white icon'></span><span class='red icon'></span><span class='white'>#{batnum}%</span>"
+    return "<span class='charging icon'></span><span class='red icon'></span><span class='white'>#{batnum}%</span>"
   else if batnum >= 90
     return "<span class='green icon'>&nbsp</span><span class='white'>#{batnum}%</span>"
   else if batnum >= 50 and batnum < 90

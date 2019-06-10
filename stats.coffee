@@ -11,7 +11,7 @@ render: (output) ->
 style: """
   right: 18px
   bottom: 11px
-  color: #66d9ef
+  color: #d7c6a7
   height: 13
 """
 

@@ -1,12 +1,12 @@
 table,
 span {
-  color: #268bd2;
+  color: #98fb98;
   font: 12px SFMono-Medium;
   text-transform: lowercase;
   -webkit-font-smoothing: antialiased;
 }
 .white {
-  color: #7b8787;
+  color: #f5deb3;
 }
 
 .black {
@@ -26,10 +26,10 @@ span {
 }
 
 .orange {
-  color: #cb4b16;
+  color: #ffa501;
 }
 .orangebg {
-  background: #cb4b16;
+  background: #ffa501;
   color: #7b8787;
 }
 
@@ -43,11 +43,11 @@ span {
 }
 
 .green {
-  color: #859900;
+  color: #07f900;
 }
 
 .greenbg {
-  background: #859900;
+  background: #07f900;
   color: #7b8787;
 }
 
@@ -77,12 +77,14 @@ span {
   position: relative;
   font: 10px FontAwesome;
 }
+
 .icon {
   position: relative;
   top: 1px;
   font: 14px FontAwesome;
   margin-right: 8px;
 }
+
 .weather {
   font: 16px WeatherIcons-Regular;
   position: relative;
@@ -115,7 +117,7 @@ span {
     cursor: ew-resize;
     background: #e8d8ca;
     box-shadow: -140px 0 0 140px;
-    color: #268bd2;
+    color: #98fb98;
     margin-top: -4.5px;
     z-index: 99;
   }
