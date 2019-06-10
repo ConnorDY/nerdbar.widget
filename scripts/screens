@@ -7,4 +7,4 @@ total=$($chunkc tiling::query -D 1 | tail -c 1)
 current=$($chunkc tiling::query --window name)
 mode=$($chunkc tiling::query -d mode)
 
-echo "$mode@$active@$total@$(sh ./nerdbar.widget/scripts/activeWindow.sh)"
+echo "$mode@$active@$total@$(/usr/local/bin/python3 ./nerdbar.widget/scripts/activeWindow.py)"
