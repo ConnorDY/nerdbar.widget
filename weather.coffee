@@ -10,23 +10,23 @@ render: (output) ->
   """
 
 style: """
-  text-align: center
-  right: -32px
-  top: 1px
-  height: 13
+  text-align: center;
+  right: -32px;
+  top: 1px;
+  height: 13;
   cursor: pointer;
   table
-    margin: auto
+    margin: auto;
   .center
-    text-align: center
+    text-align: center;
   .weather_forecast
-    top: 0px
-    width: 8em
+    top: 0px;
+    width: 8em;
     background-color: #fff7e4;
-    right: 50px
-    opacity: 0
-    position: relative
-    border-radius: 4px
+    right: 50px;
+    opacity: 0;
+    position: relative;
+    border-radius: 4px;
 """
 
 colorizeTemp: (temp) ->
