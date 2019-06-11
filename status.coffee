@@ -9,7 +9,7 @@ render: (output) ->
   """
 
 style: """
-  right: 55px
+  right: 76px
   top: 5px
   height: 13
   .wifi
@@ -26,10 +26,13 @@ style: """
     left: 12px
     z-index: 1
     color: #ffffff
+  .timeDate
+    position: relative;
+    margin-left: 5px;
   """
 timeAndDate: (date, time) ->
   # returns a formatted html string with the date and time
-  return "<span class='white'><span class='icon'>&nbsp</span>#{date}&nbsp<span class='icon'></span>#{time}</span></span>";
+  return "<span class='white timeDate'><span class='icon'>&nbsp</span>#{date}&nbsp<span class='icon'></span>#{time}</span></span>";
 
 batteryStatus: (battery, state) ->
   #returns a formatted html string current battery percentage, a representative icon and adds a lighting bolt if the
@@ -89,6 +92,6 @@ update: (output, domEl) ->
                @batteryStatus(battery, isCharging) + "<span class='cyan'>" + " ⎢ " + "</span>" +
                # @getMailCount(mail) + "&nbsp&nbsp" +
                @getReminders(reminders) + "<span class='cyan'>⎢</span>" +
-               @timeAndDate(date,time) + "<span class ='cyan'> ⎢</span>"
+               @timeAndDate(date,time) + "<span class ='cyan'> ⎢  </span>"
 
   $(domEl).find('.compstatus').html(htmlString)
