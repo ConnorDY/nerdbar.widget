@@ -3,7 +3,7 @@ import { css } from 'uebersicht';
 export const command =
   'source $HOME/.bash_profile && /usr/local/bin/python3 ./nerdbar.widget/scripts/weatherscript.py';
 
-export const refreshFrequency = 600000; // ms
+export const refreshFrequency = 60 * 60 * 1000; // ms
 
 export const className = css`
   text-align: center;
@@ -69,91 +69,31 @@ const colorizeTemp = temp => {
 };
 
 const getWeatherIcon = condition => {
-  if (condition === 'Clouds') return <span class="cyan weather"></span>;
-  else return <span class="blue weather"></span>;
+  condition = parseInt(condition);
 
-  /*# # Tornados and Hurricanes
-   if connum <= 2
-  #   return "<span class='red weather'></span>"
-  # #Thunderstorms
-  # if connum > 2 and connum <= 4
-  #   return "<span class='yellow weather'></span>"
-  # #Freezing Rain / Sleet
-  # if (connum >= 5 and connum <= 8) or connum == 10 or connum == 18
-  #   return "<span class='blue weather'></span>"
-  # #Drizzle
-  # if connum == 9
-  #   return "<span class='blue weather'></span>"
-  # #Rain
-  # if connum == 11 or connum == 12
-  #   return "<span class='blue weather'></span>"
-  # #Snow
-  # if connum >= 13 and connum <= 16
-  #   return "<span class='blue weather'></span>"
-  # #Hail
-  # if connum == 17
-  #   return "<span class='blue weather'></span>"
-  # #Dust, fog, haze, etc
-  # if connum >= 19 and connum <= 22
-  #   return "<span class='cyan weather'></span>"
-  # # Windy
-  # if connum == 23 or connum == 24
-  #   return "<span class='grey weather'></span>"
-  # #cold
-  # if connum == 25
-  #   return "<span class='cyan weather'></span>"
-  # #mostly cloudy (day) #fixed
-  # if connum == 27
-  #   return "<span class='grey weather'></span>"
-  # #mostly cloudy (day)
-  # if connum == 28
-  #   return "<span class='grey weather'></span>"
-  # #partly cloudy (day) #fixed
-  # if connum == 29
-  #   return "<span class='grey weather'></span>"
-  # #partly cloudy (day)
-  # if connum == 30 #fixed
-  #   return "<span class='grey weather'></span>"
-  # # clear night
-  # if connum == 31
-  #   return "<span class='yellow weather'></span>"
-  # #Sunny
-  # if connum == 32
-  #   return "<span class='yellow weather'></span>"
-  # #Fair, night
-  # if connum == 33
-  #   return "<span class='yellow weather'></span>"
-  # #Mostly Sunny # Fixed
-  # if connum == 34
-  #   return "<span class='yellow weather'></span>"
-  # # mixed rain and hail
-  # if connum == 35
-  #   return "<span class='blue weather'></span>"
-  # #hot
-  # if connum == 36
-  #   return "<span class='red weather'></span>"
-  # #thunder storms
-  # if connum >= 37 and connum < 39
-  #   return "<span class='yellow weather'></span>"
-  # #scattered showers
-  # if connum >= 39 and connum <= 40 #fixed
-  #   return "<span class='cyan weather'></span>"
-  # # snow
-  # if connum >= 41 and connum <=43
-  #   return "<span class='cyan weather'></span>"
-  # #partly cloudy
-  # if connum == 44
-  #   return "<span class='grey weather'></span>"
-  # #thunder showers
-  # if connum == 45
-  #   return "<span class='cyan weather'></span>"
-  # #snow showers
-  # if connum == 46
-  #   return "<span class='cyan weather'></span>"
-  # # isolated thundershowers
-  # if connum == 47
-  #   return "<span class='yellow weather'></span>"
-  # # no internet connection
-  # if connum == 99
-  #   return "<span></span>"*/
+  if (condition >= 200 && condition <= 212)
+    return <span class="yellow weather"></span>; // thunderstorms
+  if (condition === 221) return <span class="yellow weather"></span>; // scattered thunderstorms
+  if (condition >= 230 && condition <= 232)
+    return <span class="cyan weather"></span>; // thunder showers
+  if ((condition >= 300 && condition <= 302) || condition == 500)
+    return <span class="blue weather"></span>; // drizzle / light rain
+  if (condition === 501) return <span class="blue weather"></span>; // rain
+  if (condition >= 600 && condition <= 602)
+    return <span class="blue weather"></span>; // snow
+  if (condition >= 611 && condition <= 613)
+    return <span class="blue weather"></span>; // sleet
+  if (condition >= 615 && condition <= 622)
+    return <span class="cyan weather"></span>; // snow showers
+  if (condition >= 701 && condition <= 762)
+    return <span class="cyan weather"></span>; // dust, fog, haze, etc.
+  if (condition === 771 || condition === 781)
+    return <span class="red weather"></span>; // squall / tornado
+  if (condition === 800) return <span class="yellow weather"></span>; // clear / sunny
+  if (condition === 801 || condition === 802)
+    return <span class="grey weather"></span>; // partly clouds
+  if (condition === 803 || condition === 804)
+    return <span class="grey weather"></span>; // mostly cloudy
+
+  return <span class="grey weather">?</span>; // other?
 };
