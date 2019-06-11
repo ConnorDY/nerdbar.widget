@@ -7,6 +7,9 @@ import socket
 from socket import AF_INET, SOCK_STREAM, timeout
 from urllib.error import URLError, HTTPError
 
+overrideLat = 32.78
+overrideLon = -79.93
+
 def k2f(kelvin):
     return str(round((kelvin - 273.15) * 9/5 + 32))
 
@@ -30,14 +33,21 @@ def check_connectivity(host="8.8.8.8", port=53, timeout=10):
 def main():
     if check_connectivity() == True:
         try:
-            loc_json = "http://ip-api.com/json"
-            loc_result = urllib.request.urlopen(loc_json).read()
-            loc_data = json.loads(loc_result.decode())
-            latitude = str(loc_data['lat'])
-            longitude = str(loc_data['lon'])
-            city = loc_data['city']
-            region = loc_data['region']
-            country = loc_data['country']
+            try:
+                overrideLat
+                overrideLon
+            except NameError:
+                loc_json = "http://ip-api.com/json"
+                loc_result = urllib.request.urlopen(loc_json).read()
+                loc_data = json.loads(loc_result.decode())
+                latitude = str(loc_data['lat'])
+                longitude = str(loc_data['lon'])
+                city = loc_data['city']
+                region = loc_data['region']
+                country = loc_data['country']
+            else:
+                latitude = str(overrideLat)
+                longitude = str(overrideLon)
         except URLError:
             print("--@99@IP URLError")
             return
