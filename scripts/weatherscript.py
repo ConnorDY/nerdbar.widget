@@ -77,7 +77,7 @@ def main():
             print(k2f(data['list'][0]['main']['temp']) + '@' +
                   str(data['list'][0]['weather'][0]['id']))
             return
-        else:
+        except:
             print("--@99@Weather error")
             return
     else:
