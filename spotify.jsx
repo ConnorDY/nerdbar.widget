@@ -19,45 +19,42 @@ export const className = css`
 
 export const render = ({ output }) => {
   if (!output) return '';
-  const values = output.split('@');
+  const values = output.split('\n');
 
-  let artist = cutWhiteSpace(values[0]);
-  let song = cutWhiteSpace(values[1]);
-  let elapsed = values[2];
-  const total = values[3];
-  const status = cutWhiteSpace(values[4]);
+  let status = values[0].split(' ')[3];
+  status = status.substring(0, status.length - 1);
+  let artist = values[1].substring(8);
+  let song = values[3].substring(7);
+  const prog = values[4].substring(10).split('/');
+  const elapsed = prog[0];
+  const total = prog[1];
 
-  if (artist.length >= 14) {
-    artist = artist.substring(0, 13);
-    artist = cutWhiteSpace(artist);
-    song = song + '…';
+  if (artist.length > 24) {
+    artist = artist.substring(0, 24).trim();
+    artist = artist + '…';
   }
 
-  if (song.length >= 14) {
-    song = song.substring(0, 13);
-    song = cutWhiteSpace(song);
+  if (song.length > 24) {
+    song = song.substring(0, 24).trim();
     song = song + '…';
   }
 
   const elaspedValues = elapsed.split(':');
   const elaspedSeconds =
-    60 * parseInt(elaspedValues[0]) + parseInt(elaspedValues);
+    60 * parseInt(elaspedValues[0]) + parseInt(elaspedValues[1]);
 
   const totalValues = total.split(':');
-  const totalSeconds = 60 * parseInt(totalValues[0]) + parseInt(totalValues);
+  const totalSeconds = 60 * parseInt(totalValues[0]) + parseInt(totalValues[1]);
 
-  elapsed = elaspedSeconds / totalSeconds;
+  const elapsedRatio = elaspedSeconds / totalSeconds;
+  const elapsedCounter = elapsedRatio * 20;
 
-  const emptySpace = (70 - artist.length - song.length - 3) / 2;
-
-  const elapsedCounter = parseInt((elapsed * emptySpace) / 100);
-  const remainingCounter = emptySpace - elapsedCounter - 1;
-
+  let i = 0;
   let progressString = '';
-  for (let i = 0; i <= elapsedCounter; i++) progressString += ' ● ';
+  for (; i <= elapsedCounter; i++) progressString += ' ● ';
 
   let remainingString = '';
-  for (let i = 0; i <= remainingCounter; i++) remainingString += ' ● ';
+  for (; i <= 20; i++) remainingString += ' ● ';
 
   return (
     <div>
@@ -68,38 +65,29 @@ export const render = ({ output }) => {
       />
       <div class="spotify">
         <span class="icon switch"></span>
-
         <span class="white">
           &nbsp;{artist} - {song}&nbsp;
         </span>
-
         <span>{progressString}</span>
         <span class="grey">{remainingString}&nbsp;</span>
-
-        <span class="sicon prev" onClick={prev}>
+        <span class="sicon" onClick={prev}>
           &nbsp;&nbsp;
         </span>
-
         {status === 'playing' ? (
-          <span class="sicon pause" onClick={pause}>
+          <span class="sicon" onClick={pause}>
             &nbsp;&nbsp;
           </span>
         ) : (
-          <span class="sicon play" onClick={play}>
+          <span class="sicon" onClick={play}>
             &nbsp;&nbsp;
           </span>
         )}
-
-        <span class="sicon next" onClick={next}>
+        <span class="sicon" onClick={next}>
           &nbsp;&nbsp;
         </span>
       </div>
     </div>
   );
-};
-
-const cutWhiteSpace = text => {
-  return text.replace(/^\s+|\s+$/g, '');
 };
 
 const play = () => {
