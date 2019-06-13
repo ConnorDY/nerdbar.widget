@@ -1,7 +1,7 @@
 import { css } from 'uebersicht';
 
 export const command =
-  'source $HOME/.bash_profile && /usr/local/bin/python3 ./nerdbar.widget/scripts/weatherscript.py';
+  'source $HOME/.bash_profile && /usr/local/bin/python3 ./nerdbar.widget/scripts/weatherScript.py';
 
 export const refreshFrequency = 60 * 60 * 1000; // every hour
 

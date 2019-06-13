@@ -1,4 +1,4 @@
-command: "sh ./nerdbar.widget/scripts/getvolume.sh"
+command: "sh ./nerdbar.widget/scripts/getVolume"
 
 refreshFrequency: 3000 # ms
 

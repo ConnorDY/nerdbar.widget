@@ -1,6 +1,6 @@
 import { css } from 'uebersicht';
 
-export const command = 'sh ./nerdbar.widget/scripts/stats.sh';
+export const command = 'sh ./nerdbar.widget/scripts/stats';
 
 export const refreshFrequency = 5000; // every 5 seconds
 

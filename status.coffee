@@ -1,4 +1,4 @@
-command: "sh ./nerdbar.widget/scripts/status.sh"
+command: "sh ./nerdbar.widget/scripts/status"
 
 refreshFrequency: 10000 # ms
 

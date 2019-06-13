@@ -1,0 +1,2 @@
+#!/bin/bash
+echo "$(sh ./nerdbar.widget/scripts/cpuScript)@$(sh ./nerdbar.widget/scripts/memScript)@$(sh ./nerdbar.widget/scripts/networkTraffic)@$(sh ./nerdbar.widget/scripts/hdScript)"

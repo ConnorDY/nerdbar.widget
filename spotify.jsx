@@ -1,6 +1,6 @@
 import { run, css } from 'uebersicht';
 
-export const command = 'sh ./nerdbar.widget/scripts/spotify.sh';
+export const command = 'sh ./nerdbar.widget/scripts/spotify';
 
 export const refreshFrequency = 2000; // every 2 seconds
 
