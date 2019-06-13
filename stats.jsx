@@ -11,6 +11,7 @@ export const className = css`
 `;
 
 export const render = ({ output }) => {
+  if (!output) return '';
   const values = output.split('@');
 
   const cpu = values[0];

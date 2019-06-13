@@ -3,7 +3,7 @@ import { css } from 'uebersicht';
 export const command =
   'source $HOME/.bash_profile && /usr/local/bin/python3 ./nerdbar.widget/scripts/weatherscript.py';
 
-export const refreshFrequency = 60 * 60 * 1000; // ms
+export const refreshFrequency = 60 * 60 * 1000; // every hour
 
 export const className = css`
   text-align: center;
@@ -36,6 +36,8 @@ export const className = css`
 `;
 
 export const render = ({ output }) => {
+  if (!output) return '';
+
   // split the output of the script
   const values = output.split('@');
 
