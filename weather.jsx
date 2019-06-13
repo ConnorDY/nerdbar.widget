@@ -11,6 +11,10 @@ export const className = css`
   top: 1px;
   height: 13;
   cursor: pointer;
+  .weather {
+    position: relative;
+    top: 0px;
+  }
   .temp {
     margin-left: 3px;
   }
@@ -71,29 +75,76 @@ const colorizeTemp = temp => {
 const getWeatherIcon = condition => {
   condition = parseInt(condition);
 
+  // thunderstorms
   if (condition >= 200 && condition <= 212)
-    return <span class="yellow weather"></span>; // thunderstorms
-  if (condition === 221) return <span class="yellow weather"></span>; // scattered thunderstorms
+    return (
+      <span class="yellow weather" style={{ top: 1 }}>
+        
+      </span>
+    );
+  // scattered thunderstorms
+  if (condition === 221)
+    return (
+      <span class="yellow weather" style={{ top: 2 }}>
+        
+      </span>
+    );
+  // thunder showers
   if (condition >= 230 && condition <= 232)
-    return <span class="cyan weather"></span>; // thunder showers
+    return <span class="cyan weather"></span>;
+  // drizzle / light rain
   if ((condition >= 300 && condition <= 302) || condition == 500)
-    return <span class="blue weather"></span>; // drizzle / light rain
-  if (condition === 501) return <span class="blue weather"></span>; // rain
+    return <span class="blue weather"></span>;
+  // rain
+  if (condition === 501) return <span class="blue weather"></span>;
+  // snow
   if (condition >= 600 && condition <= 602)
-    return <span class="blue weather"></span>; // snow
+    return (
+      <span class="blue weather" style={{ top: 2 }}>
+        
+      </span>
+    );
+  // sleet
   if (condition >= 611 && condition <= 613)
-    return <span class="blue weather"></span>; // sleet
+    return <span class="blue weather"></span>;
+  // snow showers
   if (condition >= 615 && condition <= 622)
-    return <span class="cyan weather"></span>; // snow showers
+    return <span class="cyan weather"></span>;
+  // dust, fog, haze, etc.
   if (condition >= 701 && condition <= 762)
-    return <span class="cyan weather"></span>; // dust, fog, haze, etc.
+    return (
+      <span class="cyan weather" style={{ top: 2 }}>
+        
+      </span>
+    );
+  // squall / tornado
   if (condition === 771 || condition === 781)
-    return <span class="red weather"></span>; // squall / tornado
-  if (condition === 800) return <span class="yellow weather"></span>; // clear / sunny
+    return (
+      <span class="red weather" style={{ top: 2 }}>
+        
+      </span>
+    );
+  // clear / sunny
+  if (condition === 800)
+    return (
+      <span class="yellow weather" style={{ top: 2 }}>
+        
+      </span>
+    );
+  // partly clouds
   if (condition === 801 || condition === 802)
-    return <span class="grey weather"></span>; // partly clouds
+    return (
+      <span class="grey weather" style={{ top: 4 }}>
+        
+      </span>
+    );
+  // mostly cloudy
   if (condition === 803 || condition === 804)
-    return <span class="grey weather"></span>; // mostly cloudy
+    return (
+      <span class="grey weather" style={{ top: 4 }}>
+        
+      </span>
+    );
 
   return <span class="grey weather">?</span>; // other?
 };
