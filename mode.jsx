@@ -25,7 +25,7 @@ export const render = ({ output }) => {
 
   // apply a proper number tag so that space change controls can be added
   for (let i = 0; i < total; i++) {
-    if (i == active)
+    if (i === active)
       screenhtml.push(
         <span className={`ricon screen${i}`}>&nbsp;&nbsp;</span>
       );
