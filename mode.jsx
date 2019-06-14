@@ -2,7 +2,7 @@ import { css } from 'uebersicht';
 
 export const command = 'sh ./nerdbar.widget/scripts/screens';
 
-export const refreshFrequency = 1000; // every second
+export const refreshFrequency = 500; // every half second
 
 export const className = css`
   left: 10px;
@@ -25,7 +25,7 @@ export const render = ({ output }) => {
 
   // apply a proper number tag so that space change controls can be added
   for (let i = 0; i < total; i++) {
-    if (i === active)
+    if (i + 1 === active)
       screenhtml.push(
         <span className={`ricon screen${i}`}>&nbsp;&nbsp;</span>
       );

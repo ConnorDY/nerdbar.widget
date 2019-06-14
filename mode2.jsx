@@ -2,7 +2,7 @@ import { css } from 'uebersicht';
 
 export const command = 'sh ./nerdbar.widget/scripts/screens2';
 
-export const refreshFrequency = 1000; // every second
+export const refreshFrequency = 500; // every half second
 
 export const className = css`
   left: 10px;
