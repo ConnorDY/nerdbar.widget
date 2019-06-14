@@ -24,7 +24,7 @@ export const className = css`
   .center {
     text-align: center;
   }
-  .weather_forecast {
+  .weatherForecast {
     top: 0px;
     width: 8em;
     background-color: #fff7e4;
@@ -37,8 +37,6 @@ export const className = css`
 
 export const render = ({ output }) => {
   if (!output) return '';
-
-  // split the output of the script
   const values = output.split('@');
 
   const temp = values[0];
@@ -46,18 +44,13 @@ export const render = ({ output }) => {
 
   return (
     <div>
-      <link
-        rel="stylesheet"
-        type="text/css"
-        href="./nerdbar.widget/colors.css"
-      />
       <div class="compstatus">
         <span class="clickable">
           {getWeatherIcon(condition)}
           <span class="temp"> {colorizeTemp(temp)} </span>
         </span>
       </div>
-      <div class="weather_forecast" />
+      <div class="weatherForecast" />
     </div>
   );
 };

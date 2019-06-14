@@ -57,35 +57,28 @@ export const render = ({ output }) => {
   for (; i <= 20; i++) remainingString += ' ● ';
 
   return (
-    <div>
-      <link
-        rel="stylesheet"
-        type="text/css"
-        href="/nerdbar.widget/colors.css"
-      />
-      <div class="spotify">
-        <span class="icon switch"></span>
-        <span class="white">
-          &nbsp;{artist} - {song}&nbsp;
+    <div class="spotify">
+      <span class="icon switch"></span>
+      <span class="white">
+        &nbsp;{artist} - {song}&nbsp;
+      </span>
+      <span>{progressString}</span>
+      <span class="grey">{remainingString}&nbsp;</span>
+      <span class="sicon" onClick={prev}>
+        &nbsp;&nbsp;
+      </span>
+      {status === 'playing' ? (
+        <span class="sicon" onClick={pause}>
+          &nbsp;&nbsp;
         </span>
-        <span>{progressString}</span>
-        <span class="grey">{remainingString}&nbsp;</span>
-        <span class="sicon" onClick={prev}>
-          &nbsp;&nbsp;
+      ) : (
+        <span class="sicon" onClick={play}>
+          &nbsp;&nbsp;
         </span>
-        {status === 'playing' ? (
-          <span class="sicon" onClick={pause}>
-            &nbsp;&nbsp;
-          </span>
-        ) : (
-          <span class="sicon" onClick={play}>
-            &nbsp;&nbsp;
-          </span>
-        )}
-        <span class="sicon" onClick={next}>
-          &nbsp;&nbsp;
-        </span>
-      </div>
+      )}
+      <span class="sicon" onClick={next}>
+        &nbsp;&nbsp;
+      </span>
     </div>
   );
 };

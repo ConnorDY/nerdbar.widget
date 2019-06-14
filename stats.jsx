@@ -21,21 +21,14 @@ export const render = ({ output }) => {
   const free = values[4].replace(/[^0-9]/g, '');
 
   return (
-    <div>
-      <link
-        rel="stylesheet"
-        type="text/css"
-        href="./nerdbar.widget/colors.css"
-      />
-      <div class="stats">
-        {getNetTraffic(down, up)}
-        <span class="cyan">&nbsp;⎢&nbsp;</span>
-        {getMem(mem)}
-        <span class="cyan">&nbsp;⎢&nbsp;</span>
-        {getCPU(cpu)}
-        <span class="cyan">&nbsp;⎢&nbsp;</span>
-        {getFreeSpace(free)}
-      </div>
+    <div class="stats">
+      {getNetTraffic(down, up)}
+      <span class="cyan">&nbsp;⎢&nbsp;</span>
+      {getMem(mem)}
+      <span class="cyan">&nbsp;⎢&nbsp;</span>
+      {getCPU(cpu)}
+      <span class="cyan">&nbsp;⎢&nbsp;</span>
+      {getFreeSpace(free)}
     </div>
   );
 };

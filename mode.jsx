@@ -36,20 +36,13 @@ export const render = ({ output }) => {
   }
 
   return (
-    <div>
-      <link
-        rel="stylesheet"
-        type="text/css"
-        href="./nerdbar.widget/colors.css"
-      />
-      <div className="kwmmode">
-        <span className="tilingMode icon"></span>
-        <span className="tilingMode white">[{mode}]</span>
-        <span className="cyan"> ⎢ </span>
-        {screenhtml}
-        <span>&nbsp;</span>
-        {trimWindowName(title)}
-      </div>
+    <div className="kwmmode">
+      <span className="tilingMode icon"></span>
+      <span className="tilingMode white">[{mode}]</span>
+      <span className="cyan"> ⎢ </span>
+      {screenhtml}
+      <span>&nbsp;</span>
+      {trimWindowName(title)}
     </div>
   );
 };

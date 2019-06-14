@@ -32,6 +32,7 @@ export const className = css`
 `;
 
 export const render = ({ output }) => {
+  if (!output) return '';
   const values = output.split('@');
 
   const time = values[0].replace(/^\s+|\s+$/g, '');
@@ -44,22 +45,15 @@ export const render = ({ output }) => {
   const reminders = values[7].replace(/^\s+|\s+$/g, '');
 
   return (
-    <div>
-      <link
-        rel="stylesheet"
-        type="text/css"
-        href="./nerdbar.widget/colors.css"
-      />
-      <div class="compstatus">
-        {getWifiStatus(netStatus, netName, netIP)}
-        <span class="cyan"> ⎢</span>
-        {batteryStatus(battery, isCharging)}
-        <span class="cyan"> ⎢ </span>
-        {getReminders(reminders)}
-        <span class="cyan">⎢</span>
-        {timeAndDate(date, time)}
-        <span class="cyan"> ⎢ </span>
-      </div>
+    <div class="compstatus">
+      {getWifiStatus(netStatus, netName, netIP)}
+      <span class="cyan"> ⎢</span>
+      {batteryStatus(battery, isCharging)}
+      <span class="cyan"> ⎢ </span>
+      {getReminders(reminders)}
+      <span class="cyan">⎢</span>
+      {timeAndDate(date, time)}
+      <span class="cyan"> ⎢ </span>
     </div>
   );
 };

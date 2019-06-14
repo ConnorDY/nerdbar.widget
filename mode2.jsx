@@ -35,14 +35,5 @@ export const render = ({ output }) => {
       );
   }
 
-  return (
-    <div>
-      <link
-        rel="stylesheet"
-        type="text/css"
-        href="./nerdbar.widget/colors.css"
-      />
-      <div className="kwmmode">{screenhtml}</div>
-    </div>
-  );
+  return <div className="kwmmode">{screenhtml}</div>;
 };
