@@ -41,7 +41,7 @@ export const render = ({ output }) => {
   const netStatus = values[4].replace(/^\s+|\s+$/g, '');
   const netName = values[5];
   const netIP = values[6];
-  const reminders = values[8].replace(/^\s+|\s+$/g, '');
+  const reminders = values[7].replace(/^\s+|\s+$/g, '');
 
   return (
     <div>

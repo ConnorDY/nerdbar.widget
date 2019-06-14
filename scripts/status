@@ -1,4 +1,4 @@
 #!/bin/bash
 
-echo $(sh ./nerdbar.widget/scripts/timeScript)@$(sh ./nerdbar.widget/scripts/dateScript)@$(sh ./nerdbar.widget/scripts/batteryPercentScript)%@$(sh ./nerdbar.widget/scripts/batteryChargeScript)@$(sh ./nerdbar.widget/scripts/wifiStatusScript)@-@$(sh ./nerdbar.widget/scripts/reminders)
+echo $(sh ./nerdbar.widget/scripts/timeScript)@$(sh ./nerdbar.widget/scripts/dateScript)@$(sh ./nerdbar.widget/scripts/batteryPercentScript)%@$(sh ./nerdbar.widget/scripts/batteryChargeScript)@$(sh ./nerdbar.widget/scripts/wifiStatusScript)@$(sh ./nerdbar.widget/scripts/reminders)
 
