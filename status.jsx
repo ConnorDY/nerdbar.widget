@@ -18,16 +18,13 @@ export const className = css`
     margin-right: 12px;
   }
   .charging {
+    margin-left: -5px;
     font: 12px FontAwesome;
     position: relative;
     top: 0px;
     left: 12px;
     z-index: 1;
     color: #ffffff;
-  }
-  .timeDate {
-    position: relative;
-    margin-left: 5px;
   }
 `;
 
@@ -47,13 +44,13 @@ export const render = ({ output }) => {
   return (
     <div class="compstatus">
       {getWifiStatus(netStatus, netName, netIP)}
-      <span class="cyan"> ⎢</span>
+      <span class="cyan">&nbsp;⎢&nbsp;</span>
       {batteryStatus(battery, isCharging)}
-      <span class="cyan"> ⎢ </span>
+      <span class="cyan">&nbsp;⎢&nbsp;</span>
       {getReminders(reminders)}
-      <span class="cyan">⎢</span>
+      <span class="cyan">&nbsp;⎢&nbsp;</span>
       {timeAndDate(date, time)}
-      <span class="cyan"> ⎢ </span>
+      <span class="cyan">&nbsp;⎢</span>
     </div>
   );
 };
@@ -63,8 +60,9 @@ const timeAndDate = (date, time) => {
   return (
     <span>
       <span class="white timeDate">
-        <span class="icon">&nbsp;</span>
-        {date}&nbsp;<span class="icon"></span>
+        <span class="icon"></span>
+        {date}&nbsp;
+        <span class="icon"></span>
         {time}
       </span>
     </span>
@@ -86,7 +84,7 @@ const batteryStatus = (battery, state) => {
   else if (state == 'AC' && batNum >= 50 && batNum < 90)
     return (
       <span>
-        <span class="charging icon"></span>
+        <span class="charging sicon"></span>
         <span class="green icon"></span>
         <span class="white">{batNum}%</span>
       </span>
@@ -94,7 +92,7 @@ const batteryStatus = (battery, state) => {
   else if (state == 'AC' && batNum < 50 && batNum >= 15)
     return (
       <span>
-        <span class="charging icon"></span>
+        <span class="charging sicon"></span>
         <span class="yellow icon"></span>
         <span class="white">{batNum}%</span>
       </span>
@@ -102,7 +100,7 @@ const batteryStatus = (battery, state) => {
   else if (state == 'AC' && batNum < 15)
     return (
       <span>
-        <span class="charging icon"></span>
+        <span class="charging sicon"></span>
         <span class="red icon"></span>
         <span class="white">{batNum}%</span>
       </span>
@@ -139,7 +137,7 @@ const batteryStatus = (battery, state) => {
     return (
       <span>
         <span class="red icon">&nbsp;</span>
-        <span class="white">#{batNum}%</span>
+        <span class="white">{batNum}%</span>
       </span>
     );
 };
@@ -177,7 +175,7 @@ const getReminders = reminders => {
       <span class="reminders">
         <span class="icon"></span>
       </span>
-      <span class="white">{reminders}&nbsp;</span>
+      <span class="white">{reminders}</span>
     </span>
   );
 };
