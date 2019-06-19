@@ -5,7 +5,7 @@ export const command = 'sh ./nerdbar.widget/scripts/stats';
 export const refreshFrequency = 5000; // every 5 seconds
 
 export const className = css`
-  right: 18px;
+  right: 12px;
   bottom: 10px;
   height: 13;
 `;
@@ -67,10 +67,9 @@ const getNetTraffic = (down, up) => {
 
   return (
     <span>
-      <span>&nbsp;</span>
       <span class="icon blue"></span>
-      <span class="white">{downString}&nbsp;</span>
-      <span class="cyan"> ⎢ </span>
+      <span class="white">{downString}</span>
+      <span class="cyan">&nbsp;⎢&nbsp;</span>
       <span class="icon orange"></span>
       <span class="white">{upString}</span>
     </span>
